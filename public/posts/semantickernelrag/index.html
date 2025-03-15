@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>SemanticKernelRag | Sridhar quick notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="Okay, let&rsquo;s break down how to use Semantic Kernel with Retrieval Augmented Generation (RAG) in a Blazor application. It can be a bit tricky to get all the pieces working together, so we&rsquo;ll go step by step.
+Understanding the Core Concepts
+
+Semantic Kernel: This is a framework that helps you build intelligent applications by integrating Large Language Models (LLMs) like OpenAI, Azure OpenAI, etc. It provides abstractions for things like plugins, memory, and planners.
+RAG (Retrieval Augmented Generation): This approach improves LLM responses by first retrieving relevant information from a data source (like a vector database) and then using that information as context when generating the final output. This helps the LLM ground its responses in factual data and reduce hallucinations.
+Blazor: This is a framework for building interactive web UIs with C# instead of JavaScript. We&rsquo;ll use it to create the front-end for your RAG-powered application.
+
+High-Level Steps">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/semantickernelrag/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/semantickernelrag/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Sridhar quick notes (Alt + H)">Sridhar quick notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      SemanticKernelRag
+    </h1>
+    <div class="post-meta"><span title='2025-03-15 11:22:29 -0400 EDT'>March 15, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Okay, let&rsquo;s break down how to use Semantic Kernel with Retrieval Augmented Generation (RAG) in a Blazor application. It can be a bit tricky to get all the pieces working together, so we&rsquo;ll go step by step.</p>
+<p><strong>Understanding the Core Concepts</strong></p>
+<ol>
+<li><strong>Semantic Kernel:</strong> This is a framework that helps you build intelligent applications by integrating Large Language Models (LLMs) like OpenAI, Azure OpenAI, etc. It provides abstractions for things like plugins, memory, and planners.</li>
+<li><strong>RAG (Retrieval Augmented Generation):</strong> This approach improves LLM responses by first retrieving relevant information from a data source (like a vector database) and then using that information as context when generating the final output. This helps the LLM ground its responses in factual data and reduce hallucinations.</li>
+<li><strong>Blazor:</strong> This is a framework for building interactive web UIs with C# instead of JavaScript. We&rsquo;ll use it to create the front-end for your RAG-powered application.</li>
+</ol>
+<p><strong>High-Level Steps</strong></p>
+<p>Here&rsquo;s a general outline of what we&rsquo;ll need to do:</p>
+<ol>
+<li><strong>Set up your environment:</strong> Install the necessary NuGet packages and configure your API keys.</li>
+<li><strong>Prepare your data source:</strong> Choose a vector database (or similar) and index your data.</li>
+<li><strong>Create Semantic Kernel components:</strong> Build your skills (plugins), memory, and kernel.</li>
+<li><strong>Develop your Blazor UI:</strong> Create a simple interface for users to ask questions.</li>
+<li><strong>Connect Semantic Kernel with Blazor:</strong> Send user input to the kernel, get the RAG-enhanced response, and display it in the UI.</li>
+</ol>
+<p><strong>Let&rsquo;s Get Started with the Code</strong></p>
+<p>I&rsquo;ll provide code snippets with explanations and comments. This will be for a simple Blazor Server app for demonstration purposes.</p>
+<p><strong>1. Setting up your Environment</strong></p>
+<ul>
+<li><strong>Create a New Blazor Server Project:</strong>
+<ul>
+<li>In Visual Studio or using the .NET CLI:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new blazorserver -o MyRAGApp
+</span></span><span style="display:flex;"><span>cd MyRAGApp
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li><strong>Install NuGet Packages:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package Microsoft.SemanticKernel
+</span></span><span style="display:flex;"><span>dotnet add package Microsoft.SemanticKernel.Connectors.Memory.Qdrant
+</span></span><span style="display:flex;"><span>dotnet add package Microsoft.SemanticKernel.Connectors.OpenAI
+</span></span></code></pre></div>(Choose <code>Qdrant</code> or a memory connector of your preference)
+<ul>
+<li>Make sure you have <code>System.Text.Json</code> package included as well.</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Configure App Settings (appsettings.json)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Microsoft.AspNetCore&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AllowedHosts&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SemanticKernel&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;OpenAI&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;ApiKey&#34;</span>: <span style="color:#e6db74">&#34;YOUR_OPENAI_API_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;OrgId&#34;</span>: <span style="color:#e6db74">&#34;YOUR_OPTIONAL_OPENAI_ORG_ID&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;ModelId&#34;</span>: <span style="color:#e6db74">&#34;gpt-3.5-turbo&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;EmbeddingModelId&#34;</span>: <span style="color:#e6db74">&#34;text-embedding-ada-002&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Qdrant&#34;</span>:{
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Endpoint&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:6333&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;VectorSize&#34;</span>:<span style="color:#ae81ff">1536</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;CollectionName&#34;</span>:<span style="color:#e6db74">&#34;ragcollection&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Replace the placeholder with the api key of your preferred LLM API, e.g., OpenAI. Make sure you also replace the placeholder with the correct values of your memory vector database.</li>
+</ul>
+<p><strong>3. Create Data Loader (optional)</strong></p>
+<ul>
+<li>For simplicity, let&rsquo;s assume you have a simple text file of data to be indexed, say <code>knowledge_base.txt</code>.</li>
+<li><strong>Create a DataLoader service (<code>Services/DataLoader.cs</code>):</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Text;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Memory;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Extensions.Options;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Embeddings;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Connectors.Memory.Qdrant;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> MyRAGApp.Services
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataLoader</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IOptions&lt;SemanticKernelOptions&gt; _options;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;DataLoader&gt; _logger;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ITextEmbeddingGeneration _textEmbeddingGeneration;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> DataLoader(
+</span></span><span style="display:flex;"><span>            IOptions&lt;SemanticKernelOptions&gt; options,
+</span></span><span style="display:flex;"><span>            ILogger&lt;DataLoader&gt; logger,
+</span></span><span style="display:flex;"><span>            ITextEmbeddingGeneration textEmbeddingGeneration
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _options = options;
+</span></span><span style="display:flex;"><span>            _logger = logger;
+</span></span><span style="display:flex;"><span>            _textEmbeddingGeneration = textEmbeddingGeneration;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task LoadKnowledge(<span style="color:#66d9ef">string</span> filePath, IKernel kernel)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// Read content from text file</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> content = <span style="color:#66d9ef">await</span> File.ReadAllTextAsync(filePath, Encoding.UTF8);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> lines = content.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> memoryStore = GetMemoryStore();
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(memoryStore != <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> line <span style="color:#66d9ef">in</span> lines)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> id = Guid.NewGuid().ToString();
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">await</span> kernel.Memory.SaveInformationAsync(_options.Value.Qdrant.CollectionName, line, id, line, <span style="color:#66d9ef">null</span>, _textEmbeddingGeneration);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    _logger.LogInformation(<span style="color:#e6db74">&#34;Knowledge base loaded successfully&#34;</span>);
+</span></span><span style="display:flex;"><span>                } <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    _logger.LogError(<span style="color:#e6db74">&#34;Memory store is null. Cannot load the knowledge base&#34;</span>);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                _logger.LogError(<span style="color:#e6db74">$&#34;Error reading or loading data: {ex.Message}&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> ISemanticTextMemory? GetMemoryStore()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (_options.Value.Qdrant <span style="color:#66d9ef">is</span> not <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> QdrantMemoryStore(
+</span></span><span style="display:flex;"><span>                    _options.Value.Qdrant.Endpoint,
+</span></span><span style="display:flex;"><span>                    _options.Value.Qdrant.VectorSize
+</span></span><span style="display:flex;"><span>                );
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Add the corresponding SemanticKernelOptions class:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.ComponentModel.DataAnnotations;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> MyRAGApp
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SemanticKernelOptions</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> OpenAIConfig? OpenAI { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> QdrantConfig? Qdrant { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OpenAIConfig</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string?</span> ApiKey { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string?</span> OrgId { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string?</span> ModelId { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string?</span> EmbeddingModelId { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QdrantConfig</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string?</span> Endpoint { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int?</span> VectorSize { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Required]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string?</span> CollectionName { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Make sure to add your knowledge base content in the <code>knowledge_base.txt</code> in the <code>wwwroot/</code> directory or other preferred location.</li>
+</ul>
+<p><strong>4. Kernel Setup</strong></p>
+<ul>
+<li><strong>Create a Kernel service (<code>Services/KernelService.cs</code>):</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Connectors.OpenAI;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Extensions.Options;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Memory;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Embeddings;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.SemanticKernel.Connectors.Memory.Qdrant;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> MyRAGApp.Services
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KernelService</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IOptions&lt;SemanticKernelOptions&gt; _options;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;KernelService&gt; _logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> KernelService(IOptions&lt;SemanticKernelOptions&gt; options, ILogger&lt;KernelService&gt; logger)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _options = options;
+</span></span><span style="display:flex;"><span>            _logger = logger;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> IKernel GetKernel()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> builder = Kernel.Builder;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> apiKey = _options.Value.OpenAI?.ApiKey;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> orgId = _options.Value.OpenAI?.OrgId;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> modelId = _options.Value.OpenAI?.ModelId;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> embeddingModelId = _options.Value.OpenAI?.EmbeddingModelId;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">string</span>.IsNullOrEmpty(apiKey) || <span style="color:#66d9ef">string</span>.IsNullOrEmpty(modelId) || <span style="color:#66d9ef">string</span>.IsNullOrEmpty(embeddingModelId))
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    _logger.LogError(<span style="color:#e6db74">&#34;OpenAI API settings are not correctly configured.&#34;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                builder.AddAzureOpenAIChatCompletion(modelId, apiKey,orgId);
+</span></span><span style="display:flex;"><span>                builder.AddAzureOpenAITextEmbeddingGeneration(embeddingModelId, apiKey, orgId);
+</span></span><span style="display:flex;"><span>                builder.Services.AddTransient((sp) =&gt; GetMemoryStore());
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> builder.Build();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                _logger.LogError(<span style="color:#e6db74">$&#34;Error creating Kernel: {ex.Message}&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> ISemanticTextMemory? GetMemoryStore()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (_options.Value.Qdrant <span style="color:#66d9ef">is</span> not <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> QdrantMemoryStore(
+</span></span><span style="display:flex;"><span>                    _options.Value.Qdrant.Endpoint,
+</span></span><span style="display:flex;"><span>                    _options.Value.Qdrant.VectorSize
+</span></span><span style="display:flex;"><span>                );
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>5. Register Services in <code>Program.cs</code></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> MyRAGApp;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> MyRAGApp.Services;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> builder = WebApplication.CreateBuilder(args);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>builder.Services.Configure&lt;SemanticKernelOptions&gt;(builder.Configuration.GetSection(<span style="color:#e6db74">&#34;SemanticKernel&#34;</span>));
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Add services to the container.</span>
+</span></span><span style="display:flex;"><span>builder.Services.AddRazorPages();
+</span></span><span style="display:flex;"><span>builder.Services.AddServerSideBlazor();
+</span></span><span style="display:flex;"><span>builder.Services.AddSingleton&lt;KernelService&gt;();
+</span></span><span style="display:flex;"><span>builder.Services.AddSingleton&lt;DataLoader&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> app = builder.Build();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Configure the HTTP request pipeline.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (!app.Environment.IsDevelopment())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    app.UseExceptionHandler(<span style="color:#e6db74">&#34;/Error&#34;</span>);
+</span></span><span style="display:flex;"><span>    app.UseHsts();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.UseHttpsRedirection();
+</span></span><span style="display:flex;"><span>app.UseStaticFiles();
+</span></span><span style="display:flex;"><span>app.UseRouting();
+</span></span><span style="display:flex;"><span>app.MapBlazorHub();
+</span></span><span style="display:flex;"><span>app.MapFallbackToPage(<span style="color:#e6db74">&#34;/_Host&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> scope = app.Services.CreateScope())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> dataLoader = scope.ServiceProvider.GetRequiredService&lt;DataLoader&gt;();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> kernelService = scope.ServiceProvider.GetRequiredService&lt;KernelService&gt;();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> kernel = kernelService.GetKernel();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> filePath = Path.Combine(app.Environment.WebRootPath, <span style="color:#e6db74">&#34;knowledge_base.txt&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (kernel <span style="color:#66d9ef">is</span> not <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> dataLoader.LoadKnowledge(filePath, kernel);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app.Run();
+</span></span></code></pre></div><p><strong>6. Blazor UI</strong></p>
+<ul>
+<li><strong>Modify <code>Pages/Index.razor</code>:</strong></li>
+</ul>
+<pre tabindex="0"><code class="language-razor" data-lang="razor">@page &#34;/&#34;
+@using MyRAGApp.Services
+@inject KernelService KernelService
+@inject ILogger&lt;Index&gt; Logger
+@inject DataLoader DataLoader
+
+&lt;h1&gt;RAG with Semantic Kernel&lt;/h1&gt;
+
+&lt;div class=&#34;input-group mb-3&#34;&gt;
+    &lt;input type=&#34;text&#34; class=&#34;form-control&#34; placeholder=&#34;Ask a question&#34; @bind=&#34;UserQuestion&#34; /&gt;
+    &lt;button class=&#34;btn btn-primary&#34; @onclick=&#34;AskQuestion&#34;&gt;Ask&lt;/button&gt;
+&lt;/div&gt;
+
+@if (!string.IsNullOrEmpty(Response))
+{
+    &lt;div class=&#34;alert alert-secondary&#34;&gt;
+        @Response
+    &lt;/div&gt;
+}
+
+@code {
+    private string UserQuestion { get; set; } = string.Empty;
+    private string Response { get; set; } = string.Empty;
+
+    private async Task AskQuestion()
+    {
+        if (string.IsNullOrEmpty(UserQuestion)) return;
+
+         var kernel = KernelService.GetKernel();
+
+        if (kernel is null)
+        {
+            Logger.LogError(&#34;Kernel was not properly initialized&#34;);
+            Response = &#34;Error initializing the kernel.&#34;;
+            return;
+        }
+
+        try
+        {
+           var result = await kernel.Memory.SearchAsync(&#34;ragcollection&#34;, UserQuestion, limit:1, minRelevanceScore:0.7);
+
+             var context = result.FirstOrDefault()?.Text;
+
+             if(context != null)
+            {
+                var prompt = @$&#34;You are an AI assistant. Use the provided context to answer the question. If the context is not relevant for the answer, say you don&#39;t know. 
+
+                    Context:
+                    {context}
+
+                    Question: {UserQuestion}
+                &#34;;
+
+                var promptTemplateFactory = new Microsoft.SemanticKernel.PromptTemplate.PromptTemplateFactory();
+                var promptTemplate = promptTemplateFactory.Create(prompt);
+
+                var chatFunction = kernel.CreateSemanticFunction(promptTemplate);
+                var answer = await kernel.RunAsync(new KernelArguments(), chatFunction);
+
+                Response = answer.ToString();
+            } else
+             {
+                Response = &#34;No relevant knowledge found. Please ask a question related to the content of knowledge base file&#34;;
+             }
+            
+
+        }
+        catch (Exception ex)
+        {
+             Logger.LogError($&#34;Error processing question: {ex.Message}&#34;);
+             Response = $&#34;An error occurred: {ex.Message}&#34;;
+        }
+    }
+}
+</code></pre><p><strong>Explanation:</strong></p>
+<ol>
+<li><strong>Dependency Injection:</strong> We inject <code>KernelService</code> and <code>DataLoader</code> to use them in the page.</li>
+<li><strong>UI Elements:</strong>
+<ul>
+<li>A text input (<code>UserQuestion</code>) for the user to type their question.</li>
+<li>A button to trigger the question processing.</li>
+<li>A div (<code>Response</code>) to display the result.</li>
+</ul>
+</li>
+<li><strong><code>AskQuestion</code> Method:</strong>
+<ul>
+<li>Gets the kernel from the <code>KernelService</code>.</li>
+<li>Uses Semantic Kernel&rsquo;s memory to search for relevant data.</li>
+<li>Constructs an advanced prompt with retrieved context.</li>
+<li>Uses Semantic Kernel to run an LLM completion and get the response.</li>
+<li>Updates the <code>Response</code> variable, which triggers a UI update.</li>
+</ul>
+</li>
+</ol>
+<p><strong>How to Run</strong></p>
+<ol>
+<li>Make sure that your Qdrant instance is running.</li>
+<li>Set your API keys in <code>appsettings.json</code>.</li>
+<li>Add your knowledge base content in the <code>knowledge_base.txt</code> file.</li>
+<li>Build and run your project (<code>dotnet run</code>).</li>
+<li>Navigate to the application in your browser (<code>https://localhost:7085</code> by default).</li>
+<li>Type your question in the input and hit &ldquo;Ask.&rdquo;</li>
+</ol>
+<p><strong>Important Considerations</strong></p>
+<ul>
+<li><strong>Error Handling:</strong> Implement better error handling and logging throughout your application.</li>
+<li><strong>Memory Store Selection:</strong> Explore other vector databases or memory stores (like Azure Cognitive Search). <code>Qdrant</code> is a good starting point.</li>
+<li><strong>Prompt Engineering:</strong> Fine-tune your prompts to get the best results.</li>
+<li><strong>Performance:</strong> Vector search and LLM completions can be slow. Optimize based on your application&rsquo;s needs.</li>
+<li><strong>Security:</strong> Be mindful of storing your API keys securely. Use environment variables or secrets management.</li>
+</ul>
+<p>Let me know if you would like to dive deeper into specific parts of this process, like more advanced prompt engineering or using a different memory store. I&rsquo;m here to help you get your RAG application working!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Sridhar quick notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

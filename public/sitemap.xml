@@ -2,17 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/add-new-blog/</loc>
-    <lastmod>2025-03-15T03:24:39-04:00</lastmod>
+    <loc>http://localhost:1313/posts/nginxdotnetcore/</loc>
+    <lastmod>2025-03-15T11:31:36-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-03-15T03:24:39-04:00</lastmod>
+    <lastmod>2025-03-15T11:31:36-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-03-15T11:31:36-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/openvpndockerubuntu/</loc>
+    <lastmod>2025-03-15T11:31:10-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/aws-systems-manager/</loc>
+    <lastmod>2025-03-15T11:30:50-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/blazor-on-rp/</loc>
+    <lastmod>2025-03-15T11:28:39-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/ollamatocs/</loc>
+    <lastmod>2025-03-15T11:26:12-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/semantickernelrag/</loc>
+    <lastmod>2025-03-15T11:22:29-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/aws-saa-c02-study-guide/</loc>
+    <lastmod>2025-03-15T11:17:35-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/posts/add-new-blog/</loc>
     <lastmod>2025-03-15T03:24:39-04:00</lastmod>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <changefreq>Daily</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
