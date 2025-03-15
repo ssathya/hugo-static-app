@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head>
-	<meta name="generator" content="Hugo 0.145.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Sridhar quick notes</title>
+<title>Add New Blog | Sridhar quick notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="Blog Post Creation Workflow
+This document outlines the process for creating new blog posts. It will be updated regularly as new techniques and workflow improvements are implemented.
+Prerequisites
 
-<meta name="description" content="">
+Git Bash: Used as the primary shell.
+Git Extensions: Preferred tool for managing Git operations.
+Hugo: Static site generator.
+
+Procedure
+
+
+Navigate to the Repository:
+
+Open Git Bash.
+Navigate to the blog&rsquo;s repository directory: ~/source/Blog/static-app.
+
+
+
+Create a Branch:
+
+Using Git Extensions, create a new branch for the blog post. This isolates changes and facilitates easier review.
+
+
+
+Create a New Blog Post:">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/">
+<link rel="canonical" href="http://localhost:1313/posts/add-new-blog/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -19,8 +42,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/add-new-blog/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +82,7 @@
 </noscript>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -103,22 +125,115 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
+<main class="main">
 
-<article class="first-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Add New Blog
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Blog Post Creation Workflow This document outlines the process for creating new blog posts. It will be updated regularly as new techniques and workflow improvements are implemented.
-Prerequisites Git Bash: Used as the primary shell. Git Extensions: Preferred tool for managing Git operations. Hugo: Static site generator. Procedure Navigate to the Repository:
-Open Git Bash. Navigate to the blog’s repository directory: ~/source/Blog/static-app. Create a Branch:
-Using Git Extensions, create a new branch for the blog post. This isolates changes and facilitates easier review. Create a New Blog Post:
-...</p>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Add New Blog
+    </h1>
+    <div class="post-meta"><span title='2025-03-15 03:24:39 -0400 EDT'>March 15, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="blog-post-creation-workflow">Blog Post Creation Workflow<a hidden class="anchor" aria-hidden="true" href="#blog-post-creation-workflow">#</a></h1>
+<p>This document outlines the process for creating new blog posts. It will be updated regularly as new techniques and workflow improvements are implemented.</p>
+<h2 id="prerequisites">Prerequisites<a hidden class="anchor" aria-hidden="true" href="#prerequisites">#</a></h2>
+<ul>
+<li><strong>Git Bash:</strong> Used as the primary shell.</li>
+<li><strong>Git Extensions:</strong> Preferred tool for managing Git operations.</li>
+<li><strong>Hugo:</strong> Static site generator.</li>
+</ul>
+<h2 id="procedure">Procedure<a hidden class="anchor" aria-hidden="true" href="#procedure">#</a></h2>
+<ol>
+<li>
+<p><strong>Navigate to the Repository:</strong></p>
+<ul>
+<li>Open Git Bash.</li>
+<li>Navigate to the blog&rsquo;s repository directory: <code>~/source/Blog/static-app</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Branch:</strong></p>
+<ul>
+<li>Using Git Extensions, create a new branch for the blog post. This isolates changes and facilitates easier review.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create a New Blog Post:</strong></p>
+<ul>
+<li>
+<p>Execute the following command to create a new Markdown file for the blog post:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/<span style="color:#f92672">{</span>blog-post-file-name<span style="color:#f92672">}</span>.md
+</span></span></code></pre></div><ul>
+<li>This command creates an empty blog post file in the <code>C:\Users\sridh\source\Blog\static-app\content\posts\</code> directory.</li>
+<li>Replace <code>{blog-post-file-name}</code> with the desired file name for the blog post.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Edit the Blog Post:</strong></p>
+<ul>
+<li>Open the newly created Markdown file and add the content of your blog post.</li>
+</ul>
+</li>
+<li>
+<p><strong>Test the Draft:</strong></p>
+<ul>
+<li>
+<p>Preview the blog post in draft mode using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><ul>
+<li>The <code>-D</code> flag enables draft content.</li>
+</ul>
+</li>
+<li>
+<p>Review the changes in your local browser.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Publish the Blog Post:</strong></p>
+<ul>
+<li>Once satisfied with the draft, open the Markdown file and change the <code>draft</code> status:
+<ul>
+<li>Replace <code>draft = true</code> with <code>draft = false</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Final Test:</strong></p>
+<ul>
+<li>
+<p>Test the published version of the blog post using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div></li>
+<li>
+<p>Review the changes in your local browser.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Commit and Deploy:</strong></p>
+<ul>
+<li>Using Git Extensions, commit the changes to the branch.</li>
+<li>Push the branch to the remote repository.</li>
+<li>Merge the branch to main branch.</li>
+<li>The changes will be automatically deployed to the Azure static website.</li>
+</ul>
+</li>
+</ol>
+
+
   </div>
-  <footer class="entry-footer"><span title='2025-03-15 03:24:39 -0400 EDT'>March 15, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to Add New Blog" href="http://localhost:1313/posts/add-new-blog/"></a>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
 </article>
     </main>
     
