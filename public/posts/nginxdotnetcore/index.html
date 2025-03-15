@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Nginx Dot Net Core | Sridhar quick notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="How was Stock filter installed?
+Introduction
+Stockfilter is a Dot Net application that uses the inbuilt webserver Kestrel to host the application. Kestrel is a light weight web server for hosting ASP.NET Core applications on really any platform. Kestrel lacks a lot of the things that an ASP.NET web developer might have come to expect from a web server like IIS. For instance you cannot do SSL termination with Kestrel or URL rewrites or GZip compression.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/nginxdotnetcore/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6da9a63d25a9608bca2f7f907a030e887a7dd3c3f3918e4cc113129361414bda.css" integrity="sha256-bammPSWpYIvKL3&#43;QegMOiHp908PzkY5MwRMSk2FBS9o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/nginxdotnetcore/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Sridhar quick notes (Alt + H)">Sridhar quick notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Nginx Dot Net Core
+    </h1>
+    <div class="post-meta"><span title='2025-03-15 11:31:36 -0400 EDT'>March 15, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="how-was-stock-filter-installed">How was Stock filter installed?<a hidden class="anchor" aria-hidden="true" href="#how-was-stock-filter-installed">#</a></h2>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>Stockfilter is a Dot Net application that uses the inbuilt webserver Kestrel to host the application. Kestrel is a light weight web server for hosting ASP.NET Core applications on really any platform. Kestrel lacks a lot of the things that an ASP.NET web developer might have come to expect from a web server like IIS. For instance you cannot do SSL termination with Kestrel or URL rewrites or GZip compression.</p>
+<p>Nginix is a full-fledged web server. You can use it as a reverse proxy; in this configuration it takes load off your actual web server by preserving a cache of data which it serves before calling back to your web server. As a proxy it can also sit in front of multiple end points on your server and make them appear to be a single end point. This is useful for hiding a number of microservices behind a single end point. It can do SSL termination which makes it easy to add SSL to your site without having to modify a single line of code.</p>
+<p>This document was prepared using the procedures mentioned in <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-6.0">Microsoft  docs</a> and following a <a href="https://www.youtube.com/watch?v=mkBYgwfOzdc">YouTube</a> by Ayden’s Developer Channel.</p>
+<h1 id="register-your-domain">Register your domain<a hidden class="anchor" aria-hidden="true" href="#register-your-domain">#</a></h1>
+<p>For this application I used <a href="https://domains.google/">Google domain</a> to register the domain name <a href="https://stockfilter.de/">Stock Filter</a>.</p>
+<h2 id="dns-resolve">DNS Resolve<a hidden class="anchor" aria-hidden="true" href="#dns-resolve">#</a></h2>
+<p>Click on the name of the new domain you created in Google Domain and on the left menu click on DNS. Select <em>Default name servers</em> and <em>Manage custom records.</em> Here we are going to create an <em>A Record</em> and a <em>CNAME Record</em>. (A record is domain name to IP address mapping and CNAME points to another name <em>usually the value on A record</em>).</p>
+<h2 id="install-required-software">Install required software<a hidden class="anchor" aria-hidden="true" href="#install-required-software">#</a></h2>
+<p>This is simple; we are going to issue the following commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install nginx
+</span></span><span style="display:flex;"><span>sudo apt install certbot
+</span></span><span style="display:flex;"><span>sudo apt install python3-certbot-nginx
+</span></span></code></pre></div><p>Lets assume you worked on the CNAME and A Record(s); if not take a walk. This might be good time to ensure your installation is working fine until now. You should be greeted with the default Nginx web page and if you get see any errors then <strong>Stackoverflow</strong>!</p>
+<h2 id="build-your-application">Build your application<a hidden class="anchor" aria-hidden="true" href="#build-your-application">#</a></h2>
+<p>By now you should have your application fully tested and ready for deployment. Build your application with the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>dotnet publish -c Release 
+</span></span></code></pre></div><p>Once successfully built the executables will be in</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>........./bin/Release/netX.X/
+</span></span></code></pre></div><p>folder. We want this application to start on startup as a service and the best way to start the application and restart it if needed will be to run it as a Daemon application. To do that we will create a file in</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/etc/systemd/system/
+</span></span></code></pre></div><p>folder. Though you can create the file with any name I like the naming convention</p>
+<pre tabindex="0"><code>ApplicationName.service
+</code></pre><p>The content of this file will be as follows (adjust it as per your needs)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span> StockSelector
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>srvean
+</span></span><span style="display:flex;"><span>Group<span style="color:#f92672">=</span>srvean
+</span></span><span style="display:flex;"><span>WorkingDirectory<span style="color:#f92672">=</span>/home/srvean/DotNet/Stock-Selector-UI/StockSelector/Server/
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/usr/bin/dotnet run --configuration Release
+</span></span><span style="display:flex;"><span>Restart<span style="color:#f92672">=</span>always
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Restart service after 60 seconds if the dotnet service crashes:</span>
+</span></span><span style="display:flex;"><span>RestartSec<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>SyslogIdentifier<span style="color:#f92672">=</span>StockSelector
+</span></span><span style="display:flex;"><span>Environment<span style="color:#f92672">=</span>ASPNETCORE_ENVIRONMENT<span style="color:#f92672">=</span>Production
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>multi-user.target                    
+</span></span></code></pre></div><p>Most of the values above should be self-explanatory. The working directory could have been the <em>bin/Release/netx/</em> folder but didn&rsquo;t try <strong>dotnet run xxxx.dll</strong> command. Going forward we&rsquo;ll assume that the application <strong>listens on port 5000 for HTTP</strong> requests.  Now let us enable the server and run it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl enable ApplicationName.service
+</span></span><span style="display:flex;"><span>sudo systemctl restart ApplicationName.service
+</span></span><span style="display:flex;"><span>sudo systemctl status ApplicationName.service
+</span></span></code></pre></div><p>Well, you know what we are doing above.</p>
+<h2 id="configure-nginx">Configure Nginx<a hidden class="anchor" aria-hidden="true" href="#configure-nginx">#</a></h2>
+<p>To configure Nginx as a reverse proxy to forward HTTP requests to your ASP.NET Core app, modify <code>/etc/nginx/sites-available/default</code>. Open it in a text editor, <strong>and replace the contents with the following snippet</strong>:</p>
+<pre tabindex="0"><code>server {
+    listen        80;
+    server_name   stockfilter.de;
+    location / {
+        proxy_pass         http://127.0.0.1:5000;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre><p>You can use the above code as is; only change the value for <em>server_name</em>. After updating the file you can run the command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo nginx -t
+</span></span></code></pre></div><p>to test if the configuration is free of manual errors. Now let us restart the server with command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl restart nginx
+</span></span></code></pre></div><p>Now if you navigate to your site (http not <del>https</del>) your Dot Net application should be running. If you do not get the expected results =&gt; <strong>Stackoverflow</strong>!</p>
+<h2 id="securing-our-site">Securing our site.<a hidden class="anchor" aria-hidden="true" href="#securing-our-site">#</a></h2>
+<p>To automate the process of obtaining, installing, and updating TLS/SSL certificates on a web server, <a href="https://letsencrypt.org/">Let’s Encrypt</a> is an extremely useful tool. It is a certificate authority (CA) that comes packaged with a corresponding software client, Certbot, that will automatically install TLS/SSL certificates. This means that we can run encrypted HTTPS on a web server without having to worry about constant maintenance.</p>
+<p>We&rsquo;ll relate Certbot and our instance of Nginx using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo certbot --nginx -d stockfilter.de
+</span></span></code></pre></div><p>Obviously, the value for -d in the above command will be for our domain name. Certbot will ask a few straightforward questions which need to be answered.</p>
+<h3 id="proxy">Proxy<a hidden class="anchor" aria-hidden="true" href="#proxy">#</a></h3>
+<p>Add the <em>/etc/nginx/proxy.conf</em> configuration file:</p>
+<pre tabindex="0"><code>proxy_redirect          off;
+proxy_set_header        Host $host;
+proxy_set_header        X-Real-IP $remote_addr;
+proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header        X-Forwarded-Proto $scheme;
+client_max_body_size    10m;
+client_body_buffer_size 128k;
+proxy_connect_timeout   90;
+proxy_send_timeout      90;
+proxy_read_timeout      90;
+proxy_buffers           32 4k;
+</code></pre><p><strong>Replace</strong> the contents of the <em>/etc/nginx/nginx.conf</em> configuration file with the following file. The example contains both <code>http</code> and <code>server</code> sections in one configuration file.</p>
+<pre tabindex="0"><code>http {
+    include        /etc/nginx/proxy.conf;
+    limit_req_zone $binary_remote_addr zone=one:10m rate=5r/s;
+    server_tokens  off;
+
+    sendfile on;
+    # Adjust keepalive_timeout to the lowest possible value that makes sense 
+    # for your use case.
+    keepalive_timeout   29;
+    client_body_timeout 10; client_header_timeout 10; send_timeout 10;
+
+    upstream helloapp{
+        server 127.0.0.1:5000;
+    }
+
+    server {
+        listen                    443 ssl http2;
+        listen                    [::]:443 ssl http2;
+        server_name               example.com *.example.com;
+        ssl_certificate           /etc/ssl/certs/testCert.crt;
+        ssl_certificate_key       /etc/ssl/certs/testCert.key;
+        ssl_session_timeout       1d;
+        ssl_protocols             TLSv1.2 TLSv1.3;
+        ssl_prefer_server_ciphers off;
+        ssl_ciphers               ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+        ssl_session_cache         shared:SSL:10m;
+        ssl_session_tickets       off;
+        ssl_stapling              off;
+
+        add_header X-Frame-Options DENY;
+        add_header X-Content-Type-Options nosniff;
+
+        #Redirects all traffic
+        location / {
+            proxy_pass http://helloapp;
+            limit_req  zone=one burst=10 nodelay;
+        }
+    }
+}
+</code></pre><p>In the above file you need to update <strong>ssl_certificate</strong> and <strong>ssl_certificate_key</strong>. We can get its values from <em>/etc/nginx/sites-available/default</em> file that we updated earlier. After we updated when we ran Certbot it would have added a few lines after our edit and in the inserts that Certbot inserted you would see entries for <strong>ssl_certificate</strong> and <strong>ssl_certificate_key</strong>. Copy those values and replace it in the above code. Also replace <em>example.com</em> in the above code to your domain (e.g. stockfilter.de).</p>
+<h2 id="almost-done">Almost done<a hidden class="anchor" aria-hidden="true" href="#almost-done">#</a></h2>
+<p>Let&rsquo;s make sure our configuration changes are good by issuing the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo nginx -t
+</span></span></code></pre></div><p>And if nginx states you&rsquo;ve done an excellent job then let us restart the server  by issuing the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo systemctl restart nginx
+</span></span></code></pre></div><p>Navigate to your site using the https link (e.g. <a href="https://stockfilter.de">https://stockfilter.de</a>) and if things are good then its time for your coffee break :coffee:.</p>
+<p>Else <strong>Stackoverflow</strong>! :anguished:</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Sridhar quick notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

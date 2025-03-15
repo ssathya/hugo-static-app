@@ -107,6 +107,106 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Nginx Dot Net Core
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>How was Stock filter installed? Introduction Stockfilter is a Dot Net application that uses the inbuilt webserver Kestrel to host the application. Kestrel is a light weight web server for hosting ASP.NET Core applications on really any platform. Kestrel lacks a lot of the things that an ASP.NET web developer might have come to expect from a web server like IIS. For instance you cannot do SSL termination with Kestrel or URL rewrites or GZip compression.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:31:36 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Nginx Dot Net Core" href="http://localhost:1313/posts/nginxdotnetcore/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Installing open VPN in an VM
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The following instructions are based on this Youtube video
+Introduction When I want to virtually travel to a different country I need to create a VPN server in that region and I often land up watching Youtube videos or installing the software wrong. So I’m creating this gist so that I will not be lost when I install my next OpenVPN server on a VM.
+Platform Though we can use any VM, I prefer using LightSail offering from AWS to running my OpenVPN. Necessary changes need to be done (only in IP Firewall settings) based on the selected platform. I usually select the smallest server, (512 MB RAM, 1 vCPU, 20 GB SSD) to run my OpenVPN as it is going to serve only one client me.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:31:10 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Installing open VPN in an VM" href="http://localhost:1313/posts/openvpndockerubuntu/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Using AWS Systems Manager in a docker image
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I had issues using AWS Systems Manager in a docker container; I wanted to pass my login credentials via environment variables. Systems Manager does not use environment variables like AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, etc. and I didn’t see any examples of how people use Systems Manager within a docker image.
+This is the way I solved it and yes it works!
+using Amazon.Extensions.NETCore.Setup; using Amazon.Runtime; using Microsoft.Extensions.Configuration; using Microsoft.Extensions.DependencyInjection; namespace CloudConsole.Services; public static class ServiceBuilder { private static IConfiguration? Configuration; internal static IServiceCollection ConfigureServices(string applicationName) { IServiceCollection services = new ServiceCollection(); Configuration = BuildConfiguration(applicationName); services.AddSingleton(Configuration); return services; } private static IConfiguration BuildConfiguration(string applicationName) { var allEnvVariables = Environment.GetEnvironmentVariables(); //var region = allEnvVariables[&#34;AWS_DEFAULT_REGION&#34;]?.ToString() ?? string.Empty; var accessKey = allEnvVariables[&#34;AWS_ACCESS_KEY_ID&#34;]?.ToString() ?? string.Empty; var secretKey = allEnvVariables[&#34;AWS_SECRET_ACCESS_KEY&#34;]?.ToString() ?? string.Empty; var awsCredentials = new BasicAWSCredentials(accessKey, secretKey); AWSOptions aWSOptions = new() { Region = Amazon.RegionEndpoint.USEast1, Credentials = awsCredentials }; IConfigurationBuilder builder = new ConfigurationBuilder(); builder.SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&#34;appsettings.json&#34;, optional: true, reloadOnChange: true) .AddJsonFile($&#34;appsettings.{Environment.GetEnvironmentVariable(&#34;ASPNETCORE_ENVIRONMENT&#34;) ?? &#34;Production&#34;}.json&#34; , optional: true, reloadOnChange: true) .AddEnvironmentVariables() .AddSystemsManager(@&#34;/&#34; &#43; applicationName &#43; @&#34;/&#34;, aWSOptions, TimeSpan.FromMinutes(5)) .AddSystemsManager(&#34;&#34;&#34;/PortfolioManager/&#34;&#34;&#34;, aWSOptions); Configuration = builder.Build(); return Configuration; } } Create an AWSOptions instance and use this instance when you call AddSystemsManager.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:30:50 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Using AWS Systems Manager in a docker image" href="http://localhost:1313/posts/aws-systems-manager/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Blazor on RP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction I have always been interested in creating a blog using Blazor, a web framework that allows me to write C# code for both the client and the server side. I also wanted to host it on a Raspberry Pi, a low-cost and portable device that can run Linux and .NET applications. In this post, I will share how I configured my Blazing Blog, the name I gave to my project, on my Raspberry Pi.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:28:39 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Blazor on RP" href="http://localhost:1313/posts/blazor-on-rp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Connecting to Ollama running on Raspberry Pi
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Prerequests Here are the instructions for connecting to Ollama running on my Raspberry Pi from my C# application. I will provide step-by-step instructions for installing Ollama and connecting it to a C# application. Please ensure that your Raspberry Pi is already running some version of Linux and that you have Visual Studio installed on your computer.
+Installation Let us start by installing Ollama on your Raspberry Pi (RbP). I’ve named my RbP rbpi-5-1, and if you see “rbpi-5-1” in the rest of the document, I’m indicating my RbP.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:26:12 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Connecting to Ollama running on Raspberry Pi" href="http://localhost:1313/posts/ollamatocs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SemanticKernelRag
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Okay, let’s break down how to use Semantic Kernel with Retrieval Augmented Generation (RAG) in a Blazor application. It can be a bit tricky to get all the pieces working together, so we’ll go step by step.
+Understanding the Core Concepts
+Semantic Kernel: This is a framework that helps you build intelligent applications by integrating Large Language Models (LLMs) like OpenAI, Azure OpenAI, etc. It provides abstractions for things like plugins, memory, and planners. RAG (Retrieval Augmented Generation): This approach improves LLM responses by first retrieving relevant information from a data source (like a vector database) and then using that information as context when generating the final output. This helps the LLM ground its responses in factual data and reduce hallucinations. Blazor: This is a framework for building interactive web UIs with C# instead of JavaScript. We’ll use it to create the front-end for your RAG-powered application. High-Level Steps
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:22:29 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to SemanticKernelRag" href="http://localhost:1313/posts/semantickernelrag/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS SAA C02 Study Guide
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This is not my effort. Original content is from Keenan Romain’s repository. I’d strongly recommend to use Keenan’s repository; I made a copy so that I can make notes and update as needed.
+AWS SAA-C02 Study Guide This study guide will help you pass the newer AWS Certified Solutions Architect - Associate exam. Ideally, you should reference this guide while working through the following material:
+Stephane Maarek’s Ultimate AWS Certified Solutions Architect Associate 2021 course (permanent discount available through this link) or A Cloud Guru’s AWS Certified Solutions Architect Associate SAA-C02 course The FAQs for the most critical services, included in the recommended reading list below Tutorials Dojo’s AWS Certified Solutions Architect Associate Practice Exams Andrew Brown’s AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course Notes: If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in r/AWSCertifications as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it’s very important to be sure that you know what is free and what isn’t. Relevant Free Tier FAQs can be found here. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek’s course depending on how urgently you need the content.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-15 11:17:35 -0400 EDT'>March 15, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to AWS SAA C02 Study Guide" href="http://localhost:1313/posts/aws-saa-c02-study-guide/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Add New Blog
     </h2>
   </header>

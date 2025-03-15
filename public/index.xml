@@ -6,8 +6,132 @@
     <description>Recent content on Sridhar quick notes</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Mar 2025 03:24:39 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 15 Mar 2025 11:31:36 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx Dot Net Core</title>
+      <link>http://localhost:1313/posts/nginxdotnetcore/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:36 -0400</pubDate>
+      <guid>http://localhost:1313/posts/nginxdotnetcore/</guid>
+      <description>&lt;h2 id=&#34;how-was-stock-filter-installed&#34;&gt;How was Stock filter installed?&lt;/h2&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Stockfilter is a Dot Net application that uses the inbuilt webserver Kestrel to host the application. Kestrel is a light weight web server for hosting ASP.NET Core applications on really any platform. Kestrel lacks a lot of the things that an ASP.NET web developer might have come to expect from a web server like IIS. For instance you cannot do SSL termination with Kestrel or URL rewrites or GZip compression.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing open VPN in an VM</title>
+      <link>http://localhost:1313/posts/openvpndockerubuntu/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:10 -0400</pubDate>
+      <guid>http://localhost:1313/posts/openvpndockerubuntu/</guid>
+      <description>&lt;p&gt;The following instructions are based on this &lt;a href=&#34;https://www.youtube.com/watch?v=vU0jyDGGUUE&#34;&gt;Youtube video&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;When I want to virtually travel to a different country I need to create a VPN server in that region and I often land up watching Youtube videos or installing the software wrong. So I’m creating this gist so that I will not be lost when I install my next OpenVPN server on a VM.&lt;/p&gt;
+&lt;h2 id=&#34;platform&#34;&gt;Platform&lt;/h2&gt;
+&lt;p&gt;Though we can use any VM, I prefer using LightSail offering from AWS to running my OpenVPN. Necessary changes need to be done (only in IP Firewall settings) based on the selected platform. I usually select the smallest server, (512  MB RAM, 1  vCPU, 20  GB  SSD) to run my OpenVPN as it is going to &lt;strong&gt;serve only one client &lt;em&gt;me&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using AWS Systems Manager in a docker image</title>
+      <link>http://localhost:1313/posts/aws-systems-manager/</link>
+      <pubDate>Sat, 15 Mar 2025 11:30:50 -0400</pubDate>
+      <guid>http://localhost:1313/posts/aws-systems-manager/</guid>
+      <description>&lt;p&gt;I had issues using AWS Systems Manager in a docker container; I wanted to pass my login credentials via environment variables. Systems Manager does not use environment variables like AWS_ACCESS_KEY_ID,  AWS_SECRET_ACCESS_KEY, etc. and I didn&amp;rsquo;t see any examples of how people use Systems Manager within a docker image.&lt;/p&gt;
+&lt;p&gt;This is the way I solved it and yes it works!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cs&#34; data-lang=&#34;cs&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; Amazon.Extensions.NETCore.Setup;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; Amazon.Runtime;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; Microsoft.Extensions.Configuration;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; Microsoft.Extensions.DependencyInjection;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; CloudConsole.Services;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ServiceBuilder&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; IConfiguration? Configuration;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;internal&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; IServiceCollection ConfigureServices(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; applicationName)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        IServiceCollection services = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ServiceCollection();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Configuration = BuildConfiguration(applicationName);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        services.AddSingleton(Configuration);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; services;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; IConfiguration BuildConfiguration(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; applicationName)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; allEnvVariables = Environment.GetEnvironmentVariables();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//var region = allEnvVariables[&amp;#34;AWS_DEFAULT_REGION&amp;#34;]?.ToString() ?? string.Empty;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; accessKey = allEnvVariables[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AWS_ACCESS_KEY_ID&amp;#34;&lt;/span&gt;]?.ToString() ?? &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;.Empty;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; secretKey = allEnvVariables[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AWS_SECRET_ACCESS_KEY&amp;#34;&lt;/span&gt;]?.ToString() ?? &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;.Empty;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; awsCredentials = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; BasicAWSCredentials(accessKey, secretKey);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        AWSOptions aWSOptions = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Region = Amazon.RegionEndpoint.USEast1,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Credentials = awsCredentials
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        IConfigurationBuilder builder = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ConfigurationBuilder();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        builder.SetBasePath(Directory.GetCurrentDirectory())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            .AddJsonFile(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;appsettings.json&amp;#34;&lt;/span&gt;, optional: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;, reloadOnChange: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            .AddJsonFile(&lt;span style=&#34;color:#e6db74&#34;&gt;$&amp;#34;appsettings.{Environment.GetEnvironmentVariable(&amp;#34;&lt;/span&gt;ASPNETCORE_ENVIRONMENT&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;) ?? &amp;#34;&lt;/span&gt;Production&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;}.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                , optional: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;, reloadOnChange: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            .AddEnvironmentVariables()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            .AddSystemsManager(&lt;span style=&#34;color:#e6db74&#34;&gt;@&amp;#34;/&amp;#34;&lt;/span&gt; + applicationName + &lt;span style=&#34;color:#e6db74&#34;&gt;@&amp;#34;/&amp;#34;&lt;/span&gt;, aWSOptions, TimeSpan.FromMinutes(&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            .AddSystemsManager(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;/PortfolioManager/&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;, aWSOptions);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Configuration = builder.Build();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; Configuration;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create an AWSOptions instance and use this instance when you call AddSystemsManager.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Blazor on RP</title>
+      <link>http://localhost:1313/posts/blazor-on-rp/</link>
+      <pubDate>Sat, 15 Mar 2025 11:28:39 -0400</pubDate>
+      <guid>http://localhost:1313/posts/blazor-on-rp/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have always been interested in creating a blog using Blazor, a web framework that allows me to write C# code for both the client and the server side. I also wanted to host it on a Raspberry Pi, a low-cost and portable device that can run Linux and .NET applications. In this post, I will share how I configured my Blazing Blog, the name I gave to my project, on my Raspberry Pi.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Connecting to Ollama running on Raspberry Pi</title>
+      <link>http://localhost:1313/posts/ollamatocs/</link>
+      <pubDate>Sat, 15 Mar 2025 11:26:12 -0400</pubDate>
+      <guid>http://localhost:1313/posts/ollamatocs/</guid>
+      <description>&lt;h2 id=&#34;prerequests&#34;&gt;Prerequests&lt;/h2&gt;
+&lt;p&gt;Here are the instructions for connecting to Ollama running on my Raspberry Pi from my C# application. I will provide step-by-step instructions for installing Ollama and connecting it to a C# application. Please ensure that your Raspberry Pi is already running some version of Linux and that you have Visual Studio installed on your computer.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Let us start by installing Ollama on your Raspberry Pi (RbP). I&amp;rsquo;ve named my RbP rbpi-5-1, and if you see &amp;ldquo;rbpi-5-1&amp;rdquo; in the rest of the document, I&amp;rsquo;m indicating my RbP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SemanticKernelRag</title>
+      <link>http://localhost:1313/posts/semantickernelrag/</link>
+      <pubDate>Sat, 15 Mar 2025 11:22:29 -0400</pubDate>
+      <guid>http://localhost:1313/posts/semantickernelrag/</guid>
+      <description>&lt;p&gt;Okay, let&amp;rsquo;s break down how to use Semantic Kernel with Retrieval Augmented Generation (RAG) in a Blazor application. It can be a bit tricky to get all the pieces working together, so we&amp;rsquo;ll go step by step.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Understanding the Core Concepts&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Kernel:&lt;/strong&gt; This is a framework that helps you build intelligent applications by integrating Large Language Models (LLMs) like OpenAI, Azure OpenAI, etc. It provides abstractions for things like plugins, memory, and planners.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAG (Retrieval Augmented Generation):&lt;/strong&gt; This approach improves LLM responses by first retrieving relevant information from a data source (like a vector database) and then using that information as context when generating the final output. This helps the LLM ground its responses in factual data and reduce hallucinations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blazor:&lt;/strong&gt; This is a framework for building interactive web UIs with C# instead of JavaScript. We&amp;rsquo;ll use it to create the front-end for your RAG-powered application.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;High-Level Steps&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AWS SAA C02 Study Guide</title>
+      <link>http://localhost:1313/posts/aws-saa-c02-study-guide/</link>
+      <pubDate>Sat, 15 Mar 2025 11:17:35 -0400</pubDate>
+      <guid>http://localhost:1313/posts/aws-saa-c02-study-guide/</guid>
+      <description>&lt;h1 id=&#34;this-is-not-my-effort-original-content-is-from-keenan-romain-repository&#34;&gt;This is not my effort. Original content is from &lt;a href=&#34;https://github.com/keenanromain/AWS-SAA-C02-Study-Guide&#34;&gt;Keenan Romain&amp;rsquo;s&lt;/a&gt; repository.&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;I&amp;rsquo;d strongly recommend to use Keenan&amp;rsquo;s repository; I made a copy so that I can make notes and update as needed.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;aws-saa-c02-study-guide&#34;&gt;AWS SAA-C02 Study Guide&lt;/h1&gt;
+&lt;p&gt;This study guide will help you pass the newer AWS Certified Solutions Architect - Associate exam. Ideally, you should reference this guide while working through the following material:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Stephane Maarek&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;Ultimate AWS Certified Solutions Architect Associate 2021 course&lt;!-- raw HTML omitted --&gt; (permanent discount available through this link) or A Cloud Guru&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect Associate SAA-C02 course&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;The FAQs for the most critical services, included in the recommended reading list below&lt;/li&gt;
+&lt;li&gt;Tutorials Dojo&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect Associate Practice Exams &lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Andrew Brown&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course
+&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Notes&lt;/em&gt;:
+If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in &lt;!-- raw HTML omitted --&gt;r/AWSCertifications&lt;!-- raw HTML omitted --&gt; as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it&amp;rsquo;s very important to be sure that you know what is &lt;!-- raw HTML omitted --&gt;free&lt;!-- raw HTML omitted --&gt; and what isn&amp;rsquo;t. Relevant Free Tier FAQs can be found &lt;!-- raw HTML omitted --&gt;here&lt;!-- raw HTML omitted --&gt;. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek&amp;rsquo;s course depending on how urgently you need the content.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Add New Blog</title>
       <link>http://localhost:1313/posts/add-new-blog/</link>
