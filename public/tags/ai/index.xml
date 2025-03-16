@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ai on Sridhar quick notes</title>
+    <link>http://localhost:1313/tags/ai/</link>
+    <description>Recent content in Ai on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Mar 2025 11:26:12 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Connecting to Ollama running on Raspberry Pi</title>
+      <link>http://localhost:1313/posts/ollamatocs/</link>
+      <pubDate>Sat, 15 Mar 2025 11:26:12 -0400</pubDate>
+      <guid>http://localhost:1313/posts/ollamatocs/</guid>
+      <description>&lt;h2 id=&#34;prerequests&#34;&gt;Prerequests&lt;/h2&gt;
+&lt;p&gt;Here are the instructions for connecting to Ollama running on my Raspberry Pi from my C# application. I will provide step-by-step instructions for installing Ollama and connecting it to a C# application. Please ensure that your Raspberry Pi is already running some version of Linux and that you have Visual Studio installed on your computer.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Let us start by installing Ollama on your Raspberry Pi (RbP). I&amp;rsquo;ve named my RbP rbpi-5-1, and if you see &amp;ldquo;rbpi-5-1&amp;rdquo; in the rest of the document, I&amp;rsquo;m indicating my RbP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SemanticKernelRag</title>
+      <link>http://localhost:1313/posts/semantickernelrag/</link>
+      <pubDate>Sat, 15 Mar 2025 11:22:29 -0400</pubDate>
+      <guid>http://localhost:1313/posts/semantickernelrag/</guid>
+      <description>&lt;p&gt;Okay, let&amp;rsquo;s break down how to use Semantic Kernel with Retrieval Augmented Generation (RAG) in a Blazor application. It can be a bit tricky to get all the pieces working together, so we&amp;rsquo;ll go step by step.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Understanding the Core Concepts&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Kernel:&lt;/strong&gt; This is a framework that helps you build intelligent applications by integrating Large Language Models (LLMs) like OpenAI, Azure OpenAI, etc. It provides abstractions for things like plugins, memory, and planners.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RAG (Retrieval Augmented Generation):&lt;/strong&gt; This approach improves LLM responses by first retrieving relevant information from a data source (like a vector database) and then using that information as context when generating the final output. This helps the LLM ground its responses in factual data and reduce hallucinations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blazor:&lt;/strong&gt; This is a framework for building interactive web UIs with C# instead of JavaScript. We&amp;rsquo;ll use it to create the front-end for your RAG-powered application.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;High-Level Steps&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

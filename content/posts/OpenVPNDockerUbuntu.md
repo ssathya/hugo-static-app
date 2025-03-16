@@ -2,6 +2,8 @@
 date = '2025-03-15T11:31:10-04:00'
 draft = false
 title = 'Installing open VPN in an VM'
+tags = ['vpn', 'docker']
+categories = ['vpn', 'OpenVPN', 'docker']
 +++
 
 The following instructions are based on this [Youtube video](https://www.youtube.com/watch?v=vU0jyDGGUUE)

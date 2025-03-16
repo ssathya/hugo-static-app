@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docs on Sridhar quick notes</title>
+    <link>http://localhost:1313/categories/docs/</link>
+    <description>Recent content in Docs on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Mar 2025 03:24:39 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add New Blog</title>
+      <link>http://localhost:1313/posts/add-new-blog/</link>
+      <pubDate>Sat, 15 Mar 2025 03:24:39 -0400</pubDate>
+      <guid>http://localhost:1313/posts/add-new-blog/</guid>
+      <description>&lt;h1 id=&#34;blog-post-creation-workflow&#34;&gt;Blog Post Creation Workflow&lt;/h1&gt;
+&lt;p&gt;This document outlines the process for creating new blog posts. It will be updated regularly as new techniques and workflow improvements are implemented.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Git Bash:&lt;/strong&gt; Used as the primary shell.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git Extensions:&lt;/strong&gt; Preferred tool for managing Git operations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hugo:&lt;/strong&gt; Static site generator.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Navigate to the Repository:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Git Bash.&lt;/li&gt;
+&lt;li&gt;Navigate to the blog&amp;rsquo;s repository directory: &lt;code&gt;~/source/Blog/static-app&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Create a Branch:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using Git Extensions, create a new branch for the blog post. This isolates changes and facilitates easier review.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Create a New Blog Post:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

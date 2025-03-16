@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nginx on Sridhar quick notes</title>
+    <link>http://localhost:1313/tags/nginx/</link>
+    <description>Recent content in Nginx on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Mar 2025 11:31:36 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx Dot Net Core</title>
+      <link>http://localhost:1313/posts/nginxdotnetcore/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:36 -0400</pubDate>
+      <guid>http://localhost:1313/posts/nginxdotnetcore/</guid>
+      <description>&lt;h2 id=&#34;how-was-stock-filter-installed&#34;&gt;How was Stock filter installed?&lt;/h2&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Stockfilter is a Dot Net application that uses the inbuilt webserver Kestrel to host the application. Kestrel is a light weight web server for hosting ASP.NET Core applications on really any platform. Kestrel lacks a lot of the things that an ASP.NET web developer might have come to expect from a web server like IIS. For instance you cannot do SSL termination with Kestrel or URL rewrites or GZip compression.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

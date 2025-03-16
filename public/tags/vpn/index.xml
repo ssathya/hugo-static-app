@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vpn on Sridhar quick notes</title>
+    <link>http://localhost:1313/tags/vpn/</link>
+    <description>Recent content in Vpn on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Mar 2025 11:31:10 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing open VPN in an VM</title>
+      <link>http://localhost:1313/posts/openvpndockerubuntu/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:10 -0400</pubDate>
+      <guid>http://localhost:1313/posts/openvpndockerubuntu/</guid>
+      <description>&lt;p&gt;The following instructions are based on this &lt;a href=&#34;https://www.youtube.com/watch?v=vU0jyDGGUUE&#34;&gt;Youtube video&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;When I want to virtually travel to a different country I need to create a VPN server in that region and I often land up watching Youtube videos or installing the software wrong. So I’m creating this gist so that I will not be lost when I install my next OpenVPN server on a VM.&lt;/p&gt;
+&lt;h2 id=&#34;platform&#34;&gt;Platform&lt;/h2&gt;
+&lt;p&gt;Though we can use any VM, I prefer using LightSail offering from AWS to running my OpenVPN. Necessary changes need to be done (only in IP Firewall settings) based on the selected platform. I usually select the smallest server, (512  MB RAM, 1  vCPU, 20  GB  SSD) to run my OpenVPN as it is going to &lt;strong&gt;serve only one client &lt;em&gt;me&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

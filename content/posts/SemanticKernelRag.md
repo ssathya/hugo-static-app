@@ -2,6 +2,8 @@
 date = '2025-03-15T11:22:29-04:00'
 draft = false
 title = 'SemanticKernelRag'
+tags = ['programming', 'ai']
+categories = ['programming', 'artificial-intelligence']
 +++
 
 Okay, let's break down how to use Semantic Kernel with Retrieval Augmented Generation (RAG) in a Blazor application. It can be a bit tricky to get all the pieces working together, so we'll go step by step.

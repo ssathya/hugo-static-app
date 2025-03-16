@@ -2,6 +2,8 @@
 date = '2025-03-15T11:31:36-04:00'
 draft = false
 title = 'Nginx Dot Net Core'
+tags = ['nginx', 'hosting', 'gcp']
+categories = ['dot-net', 'hosting']
 +++
 
 ## How was Stock filter installed?
