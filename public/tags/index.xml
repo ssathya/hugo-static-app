@@ -4,8 +4,91 @@
     <title>Tags on Sridhar quick notes</title>
     <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 15 Mar 2025 11:31:36 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gcp</title>
+      <link>http://localhost:1313/tags/gcp/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:36 -0400</pubDate>
+      <guid>http://localhost:1313/tags/gcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hosting</title>
+      <link>http://localhost:1313/tags/hosting/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:36 -0400</pubDate>
+      <guid>http://localhost:1313/tags/hosting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>http://localhost:1313/tags/nginx/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:36 -0400</pubDate>
+      <guid>http://localhost:1313/tags/nginx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:10 -0400</pubDate>
+      <guid>http://localhost:1313/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vpn</title>
+      <link>http://localhost:1313/tags/vpn/</link>
+      <pubDate>Sat, 15 Mar 2025 11:31:10 -0400</pubDate>
+      <guid>http://localhost:1313/tags/vpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>http://localhost:1313/tags/aws/</link>
+      <pubDate>Sat, 15 Mar 2025 11:30:50 -0400</pubDate>
+      <guid>http://localhost:1313/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/tags/programming/</link>
+      <pubDate>Sat, 15 Mar 2025 11:30:50 -0400</pubDate>
+      <guid>http://localhost:1313/tags/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai</title>
+      <link>http://localhost:1313/tags/ai/</link>
+      <pubDate>Sat, 15 Mar 2025 11:26:12 -0400</pubDate>
+      <guid>http://localhost:1313/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:1313/tags/tutorial/</link>
+      <pubDate>Sat, 15 Mar 2025 11:17:35 -0400</pubDate>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Private</title>
+      <link>http://localhost:1313/tags/private/</link>
+      <pubDate>Sat, 15 Mar 2025 03:24:39 -0400</pubDate>
+      <guid>http://localhost:1313/tags/private/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Note</title>
+      <link>http://localhost:1313/tags/self-note/</link>
+      <pubDate>Sat, 15 Mar 2025 03:24:39 -0400</pubDate>
+      <guid>http://localhost:1313/tags/self-note/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

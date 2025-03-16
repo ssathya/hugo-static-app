@@ -2,6 +2,8 @@
 date = '2025-03-15T03:24:39-04:00'
 draft = false
 title = 'Add New Blog'
+tags = ['private', 'self-note']
+categories = ['docs', 'maintain-blog']
 +++
 
 # Blog Post Creation Workflow

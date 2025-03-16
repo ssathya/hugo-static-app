@@ -2,6 +2,8 @@
 date = '2025-03-15T11:26:12-04:00'
 draft = false
 title = 'Connecting to Ollama running on Raspberry Pi'
+tags = ['programming', 'ai']
+categories = ['programming', 'artificial-intelligence']
 +++
 
 ## Prerequests

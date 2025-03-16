@@ -2,6 +2,8 @@
 date = '2025-03-15T11:17:35-04:00'
 draft = false
 title = 'AWS SAA C02 Study Guide'
+tags =['tutorial','aws']
+categories = ['aws', 'refrence']
 +++
 # This is not my effort. Original content is from [Keenan Romain's](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) repository.
 
