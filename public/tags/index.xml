@@ -11,8 +11,29 @@
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Mar 2025 11:31:36 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 00:20:35 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Momentum Trading</title>
+      <link>http://localhost:1313/tags/momentum-trading/</link>
+      <pubDate>Mon, 17 Mar 2025 00:20:35 -0400</pubDate>
+      <guid>http://localhost:1313/tags/momentum-trading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stock Market</title>
+      <link>http://localhost:1313/tags/stock-market/</link>
+      <pubDate>Mon, 17 Mar 2025 00:20:35 -0400</pubDate>
+      <guid>http://localhost:1313/tags/stock-market/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trading Strategies</title>
+      <link>http://localhost:1313/tags/trading-strategies/</link>
+      <pubDate>Mon, 17 Mar 2025 00:20:35 -0400</pubDate>
+      <guid>http://localhost:1313/tags/trading-strategies/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Gcp</title>
       <link>http://localhost:1313/tags/gcp/</link>

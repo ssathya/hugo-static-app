@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Stock Market on Sridhar quick notes</title>
+    <link>http://localhost:1313/tags/stock-market/</link>
+    <description>Recent content in Stock Market on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Mar 2025 00:20:35 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/stock-market/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Momentum Trading</title>
+      <link>http://localhost:1313/posts/momentum-trading/</link>
+      <pubDate>Mon, 17 Mar 2025 00:20:35 -0400</pubDate>
+      <guid>http://localhost:1313/posts/momentum-trading/</guid>
+      <description>&lt;p&gt;At first glance, momentum investing appears more like a reflexive response to market trends than a deliberate investing strategy. The concept of selling underperforming assets and purchasing those on the rise is enticing, but it directly challenges the timeless Wall Street principle of &amp;ldquo;buy low, sell high.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;This article explores the concept of momentum investing, examining its advantages and drawbacks.&lt;/p&gt;
+&lt;p&gt;While Richard Driehaus wasn&amp;rsquo;t the pioneer of momentum investing, he refined the approach and implemented it as the cornerstone of his fund management strategy.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
