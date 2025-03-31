@@ -2,6 +2,8 @@
 date = '2025-03-30T11:56:15-04:00'
 draft = false
 title = 'Installing (Upgrading) Ollama'
+tags = ['Raspberry Pi', 'Ollama']
+categories = ['System Administration', 'Tech Guides']
 +++
 
 This is an urgent note about how I resolved a pressing issue installing Ollama on my Raspberry Pi. 
