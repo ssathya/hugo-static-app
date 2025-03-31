@@ -308,7 +308,7 @@ app.Run();
 
 *   **Modify `Pages/Index.razor`:**
 
-```razor
+```csharp
 @page "/"
 @using MyRAGApp.Services
 @inject KernelService KernelService

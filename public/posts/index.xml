@@ -11,8 +11,16 @@
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Mar 2025 00:20:35 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 30 Mar 2025 11:56:15 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing (Upgrading) Ollama</title>
+      <link>http://localhost:1313/posts/install-ollama/</link>
+      <pubDate>Sun, 30 Mar 2025 11:56:15 -0400</pubDate>
+      <guid>http://localhost:1313/posts/install-ollama/</guid>
+      <description>&lt;p&gt;This is an urgent note about how I resolved a pressing issue installing Ollama on my Raspberry Pi.&lt;/p&gt;
+&lt;p&gt;A few months ago, I successfully installed Ollama on my Raspberry Pi, and it performed flawlessly. I made some configuration tweaks to ensure everything worked smoothly at the time, but I couldn’t recall the changes I had implemented. Recently, after upgrading the Ollama server, disaster struck—all the applications reliant on this Raspberry Pi began to fail. I wrote this blog to prevent a repeat of this frustrating experience during future upgrades, documenting how I resolved the issue and restored functionality.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Momentum Trading</title>
       <link>http://localhost:1313/posts/momentum-trading/</link>
