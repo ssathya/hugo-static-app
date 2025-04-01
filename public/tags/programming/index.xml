@@ -67,16 +67,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create an AWSOptions instance and use this instance when you call AddSystemsManager.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Connecting to Ollama running on Raspberry Pi</title>
-      <link>http://localhost:1313/posts/ollamatocs/</link>
-      <pubDate>Sat, 15 Mar 2025 11:26:12 -0400</pubDate>
-      <guid>http://localhost:1313/posts/ollamatocs/</guid>
-      <description>&lt;h2 id=&#34;prerequests&#34;&gt;Prerequests&lt;/h2&gt;
-&lt;p&gt;Here are the instructions for connecting to Ollama running on my Raspberry Pi from my C# application. I will provide step-by-step instructions for installing Ollama and connecting it to a C# application. Please ensure that your Raspberry Pi is already running some version of Linux and that you have Visual Studio installed on your computer.&lt;/p&gt;
-&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;p&gt;Let us start by installing Ollama on your Raspberry Pi (RbP). I&amp;rsquo;ve named my RbP rbpi-5-1, and if you see &amp;ldquo;rbpi-5-1&amp;rdquo; in the rest of the document, I&amp;rsquo;m indicating my RbP.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>SemanticKernelRag</title>
       <link>http://localhost:1313/posts/semantickernelrag/</link>
       <pubDate>Sat, 15 Mar 2025 11:22:29 -0400</pubDate>

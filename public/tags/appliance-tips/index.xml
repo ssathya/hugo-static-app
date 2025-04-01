@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Appliance Tips on Sridhar quick notes</title>
+    <link>http://localhost:1313/tags/appliance-tips/</link>
+    <description>Recent content in Appliance Tips on Sridhar quick notes</description>
+    <image>
+      <title>Sridhar quick notes</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Apr 2025 17:30:04 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/appliance-tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hisense Freezer</title>
+      <link>http://localhost:1313/posts/hisense-freezer/</link>
+      <pubDate>Tue, 01 Apr 2025 17:30:04 -0400</pubDate>
+      <guid>http://localhost:1313/posts/hisense-freezer/</guid>
+      <description>&lt;p&gt;I recently purchased a Hisense freezer from Costco that can double as a refrigerator. Switching modes isn&amp;rsquo;t very intuitive, and I don&amp;rsquo;t do it frequently. Rather than referencing the manual every time, I thought extracting the key information and sharing it on my blog would be helpful.&lt;/p&gt;
+&lt;h2 id=&#34;display-controls&#34;&gt;Display Controls&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://i.imgur.com/yPMdzi7.png&#34;&gt;
+Controlling the Hisense freezer/refrigerator involves understanding the standby mode. To enter or exit this mode, simply press and hold the power button for at least 3 seconds. When in standby mode, the temperature area will display &amp;lsquo;OF&amp;rsquo;, other icons will be extinguished, and other key functions will be disabled. Pressing the button again will restore the original control state, exiting the standby mode.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

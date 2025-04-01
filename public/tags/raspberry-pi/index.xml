@@ -21,5 +21,23 @@
       <description>&lt;p&gt;This is an urgent note about how I resolved a pressing issue installing Ollama on my Raspberry Pi.&lt;/p&gt;
 &lt;p&gt;A few months ago, I successfully installed Ollama on my Raspberry Pi, and it performed flawlessly. I made some configuration tweaks to ensure everything worked smoothly at the time, but I couldn’t recall the changes I had implemented. Recently, after upgrading the Ollama server, disaster struck—all the applications reliant on this Raspberry Pi began to fail. I wrote this blog to prevent a repeat of this frustrating experience during future upgrades, documenting how I resolved the issue and restored functionality.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Blazor on RP</title>
+      <link>http://localhost:1313/posts/blazor-on-rp/</link>
+      <pubDate>Sat, 15 Mar 2025 11:28:39 -0400</pubDate>
+      <guid>http://localhost:1313/posts/blazor-on-rp/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have always been interested in creating a blog using Blazor, a web framework that allows me to write C# code for both the client and the server side. I also wanted to host it on a Raspberry Pi, a low-cost and portable device that can run Linux and .NET applications. In this post, I will share how I configured my Blazing Blog, the name I gave to my project, on my Raspberry Pi.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Connecting to Ollama running on Raspberry Pi</title>
+      <link>http://localhost:1313/posts/ollamatocs/</link>
+      <pubDate>Sat, 15 Mar 2025 11:26:12 -0400</pubDate>
+      <guid>http://localhost:1313/posts/ollamatocs/</guid>
+      <description>&lt;h2 id=&#34;prerequests&#34;&gt;Prerequests&lt;/h2&gt;
+&lt;p&gt;Here are the instructions for connecting to Ollama running on my Raspberry Pi from my C# application. I will provide step-by-step instructions for installing Ollama and connecting it to a C# application. Please ensure that your Raspberry Pi is already running some version of Linux and that you have Visual Studio installed on your computer.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Let us start by installing Ollama on your Raspberry Pi (RbP). I&amp;rsquo;ve named my RbP rbpi-5-1, and if you see &amp;ldquo;rbpi-5-1&amp;rdquo; in the rest of the document, I&amp;rsquo;m indicating my RbP.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
