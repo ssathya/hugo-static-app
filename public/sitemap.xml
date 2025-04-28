@@ -2,28 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/boonton/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hidden-gems-in-new-jersey/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/personal-reflections/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/photography-inspiration/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/travel-and-nature/</loc>
+    <lastmod>2025-04-28T17:06:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/%23-hisense-freezer/</loc>
     <lastmod>2025-04-01T17:30:04-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/appliance-tips/</loc>
     <lastmod>2025-04-01T17:30:04-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-04-01T17:30:04-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/hisense-freezer/</loc>
     <lastmod>2025-04-01T17:30:04-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/household-guide/</loc>
-    <lastmod>2025-04-01T17:30:04-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-04-01T17:30:04-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-04-01T17:30:04-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-04-01T17:30:04-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/install-ollama/</loc>
