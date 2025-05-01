@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Apr 2025 17:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 May 2025 12:40:09 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docs</title>
+      <link>http://localhost:1313/categories/docs/</link>
+      <pubDate>Thu, 01 May 2025 12:40:09 -0400</pubDate>
+      <guid>http://localhost:1313/categories/docs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stock Market</title>
+      <link>http://localhost:1313/categories/stock-market/</link>
+      <pubDate>Thu, 01 May 2025 12:40:09 -0400</pubDate>
+      <guid>http://localhost:1313/categories/stock-market/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Personal Reflections</title>
       <link>http://localhost:1313/categories/personal-reflections/</link>
@@ -116,13 +130,6 @@
       <link>http://localhost:1313/categories/refrence/</link>
       <pubDate>Sat, 15 Mar 2025 11:17:35 -0400</pubDate>
       <guid>http://localhost:1313/categories/refrence/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docs</title>
-      <link>http://localhost:1313/categories/docs/</link>
-      <pubDate>Sat, 15 Mar 2025 03:24:39 -0400</pubDate>
-      <guid>http://localhost:1313/categories/docs/</guid>
       <description></description>
     </item>
     <item>

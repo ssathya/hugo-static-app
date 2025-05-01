@@ -11,15 +11,22 @@
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Apr 2025 17:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 May 2025 12:40:09 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simplified Stock Portfolio Tracker and Analyzer</title>
+      <link>http://localhost:1313/posts/portfolio-analyzer/</link>
+      <pubDate>Thu, 01 May 2025 12:40:09 -0400</pubDate>
+      <guid>http://localhost:1313/posts/portfolio-analyzer/</guid>
+      <description>&lt;h2 id=&#34;preamble&#34;&gt;Preamble&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;This high-level requirement was generated using my prompts, with the AI providing its interpretations of my bullet points. My implementation of the Portfolio Tracker may diverge from the original specifications. However, I must establish a target, and I hope that the final product will incorporate most of the defined objectives. Once I execute my project, I will enumerate the changes and articulate how they differ from the initial goals.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>A Day in Boonton: A Journey into Quiet Beauty</title>
       <link>http://localhost:1313/posts/boonton/</link>
       <pubDate>Mon, 28 Apr 2025 17:06:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/boonton/</guid>
-      <description>&lt;h1 id=&#34;a-day-in-boonton-a-journey-into-quiet-beauty&#34;&gt;A Day in Boonton: A Journey into Quiet Beauty&lt;/h1&gt;
-&lt;p&gt;On April 27th, 2025, I found myself drawn to a small, unassuming getaway—Boonton, NJ. It wasn’t one of those days marked by a whirlwind of plans or urgent appointments. Instead, I craved change from the everyday rhythms of life and wanted to immerse myself in a tranquil, unhurried environment, even if only for a few precious hours. What unfolded was a day embroidered with moments of quiet introspection, unexpected photographic revelations, and slow, deliberate pleasure in nature’s simple wonders.&lt;/p&gt;</description>
+      <description>&lt;p&gt;On April 27th, 2025, I found myself drawn to a small, unassuming getaway—Boonton, NJ. It wasn’t one of those days marked by a whirlwind of plans or urgent appointments. Instead, I craved change from the everyday rhythms of life and wanted to immerse myself in a tranquil, unhurried environment, even if only for a few precious hours. What unfolded was a day embroidered with moments of quiet introspection, unexpected photographic revelations, and slow, deliberate pleasure in nature’s simple wonders.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hisense Freezer</title>
