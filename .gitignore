@@ -32,3 +32,5 @@ netrwhist
 tags
 [._]*.un~
 
+#folders
+/public
