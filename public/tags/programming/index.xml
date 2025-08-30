@@ -9,10 +9,29 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 May 2025 12:40:09 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 17:31:31 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aspire Getting Started</title>
+      <link>http://localhost:1313/posts/aspire-getting-started/</link>
+      <pubDate>Sat, 30 Aug 2025 17:31:31 -0400</pubDate>
+      <guid>http://localhost:1313/posts/aspire-getting-started/</guid>
+      <description>&lt;p&gt;Microsoft has &lt;a href=&#34;https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app?tabs=windows&amp;amp;pivots=visual-studio&#34;&gt;excellent documentation&lt;/a&gt; for getting started with Aspire, but I am preparing this document for my personal reference and easy access.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;.NET 9
+&lt;ul&gt;
+&lt;li&gt;Though .NET 8 will be suitable for Aspire, we&amp;rsquo;ll go with version 9 for Aspire 9.x support.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;An OCI-compliant container runtime, such as Podman.&lt;/li&gt;
+&lt;li&gt;Visual Studio 2022&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;create-your-first-aspire-project&#34;&gt;Create your first Aspire Project.&lt;/h2&gt;
+&lt;p&gt;Start Visual Studio and create a new project. In the Create New Project template, select to create a new &amp;ldquo;Aspire Starter App&amp;rdquo;. &lt;img alt=&#34;New project template&#34; loading=&#34;lazy&#34; src=&#34;https://learn.microsoft.com/en-us/dotnet/aspire/docs/media/aspire-templates.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Simplified Stock Portfolio Tracker and Analyzer</title>
       <link>http://localhost:1313/posts/portfolio-analyzer/</link>

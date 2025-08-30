@@ -9,7 +9,7 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Mar 2025 11:30:50 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/aws/index.xml" rel="self" type="application/rss+xml" />
@@ -76,14 +76,14 @@
 &lt;h1 id=&#34;aws-saa-c02-study-guide&#34;&gt;AWS SAA-C02 Study Guide&lt;/h1&gt;
 &lt;p&gt;This study guide will help you pass the newer AWS Certified Solutions Architect - Associate exam. Ideally, you should reference this guide while working through the following material:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Stephane Maarek&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;Ultimate AWS Certified Solutions Architect Associate 2021 course&lt;!-- raw HTML omitted --&gt; (permanent discount available through this link) or A Cloud Guru&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect Associate SAA-C02 course&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Stephane Maarek&amp;rsquo;s &lt;a href=&#34;https://links.datacumulus.com/aws-certified-sa-associate-coupon&#34;&gt;Ultimate AWS Certified Solutions Architect Associate 2021 course&lt;/a&gt; (permanent discount available through this link) or A Cloud Guru&amp;rsquo;s &lt;a href=&#34;https://acloud.guru/learn/aws-certified-solutions-architect-associate&#34;&gt;AWS Certified Solutions Architect Associate SAA-C02 course&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The FAQs for the most critical services, included in the recommended reading list below&lt;/li&gt;
-&lt;li&gt;Tutorials Dojo&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect Associate Practice Exams &lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;Andrew Brown&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course
-&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Tutorials Dojo&amp;rsquo;s &lt;a href=&#34;https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/&#34;&gt;AWS Certified Solutions Architect Associate Practice Exams &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Andrew Brown&amp;rsquo;s &lt;a href=&#34;https://www.youtube.com/watch?v=Ia-UEYYR44s&#34;&gt;AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course
+&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;Notes&lt;/em&gt;:
-If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in &lt;!-- raw HTML omitted --&gt;r/AWSCertifications&lt;!-- raw HTML omitted --&gt; as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it&amp;rsquo;s very important to be sure that you know what is &lt;!-- raw HTML omitted --&gt;free&lt;!-- raw HTML omitted --&gt; and what isn&amp;rsquo;t. Relevant Free Tier FAQs can be found &lt;!-- raw HTML omitted --&gt;here&lt;!-- raw HTML omitted --&gt;. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek&amp;rsquo;s course depending on how urgently you need the content.&lt;/p&gt;</description>
+If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in &lt;a href=&#34;https://reddit.com/r/AWSCertifications/&#34;&gt;r/AWSCertifications&lt;/a&gt; as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it&amp;rsquo;s very important to be sure that you know what is &lt;a href=&#34;https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&#34;&gt;free&lt;/a&gt; and what isn&amp;rsquo;t. Relevant Free Tier FAQs can be found &lt;a href=&#34;https://aws.amazon.com/free/free-tier-faqs/&#34;&gt;here&lt;/a&gt;. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek&amp;rsquo;s course depending on how urgently you need the content.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

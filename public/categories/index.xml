@@ -9,10 +9,24 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 May 2025 12:40:09 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 17:31:31 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aspire</title>
+      <link>http://localhost:1313/categories/aspire/</link>
+      <pubDate>Sat, 30 Aug 2025 17:31:31 -0400</pubDate>
+      <guid>http://localhost:1313/categories/aspire/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blazor</title>
+      <link>http://localhost:1313/categories/blazor/</link>
+      <pubDate>Sat, 30 Aug 2025 17:31:31 -0400</pubDate>
+      <guid>http://localhost:1313/categories/blazor/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Docs</title>
       <link>http://localhost:1313/categories/docs/</link>

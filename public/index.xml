@@ -9,10 +9,40 @@
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 May 2025 12:40:09 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 17:31:31 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aspire Getting Started</title>
+      <link>http://localhost:1313/posts/aspire-getting-started/</link>
+      <pubDate>Sat, 30 Aug 2025 17:31:31 -0400</pubDate>
+      <guid>http://localhost:1313/posts/aspire-getting-started/</guid>
+      <description>&lt;p&gt;Microsoft has &lt;a href=&#34;https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app?tabs=windows&amp;amp;pivots=visual-studio&#34;&gt;excellent documentation&lt;/a&gt; for getting started with Aspire, but I am preparing this document for my personal reference and easy access.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;.NET 9
+&lt;ul&gt;
+&lt;li&gt;Though .NET 8 will be suitable for Aspire, we&amp;rsquo;ll go with version 9 for Aspire 9.x support.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;An OCI-compliant container runtime, such as Podman.&lt;/li&gt;
+&lt;li&gt;Visual Studio 2022&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;create-your-first-aspire-project&#34;&gt;Create your first Aspire Project.&lt;/h2&gt;
+&lt;p&gt;Start Visual Studio and create a new project. In the Create New Project template, select to create a new &amp;ldquo;Aspire Starter App&amp;rdquo;. &lt;img alt=&#34;New project template&#34; loading=&#34;lazy&#34; src=&#34;https://learn.microsoft.com/en-us/dotnet/aspire/docs/media/aspire-templates.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>California 2025</title>
+      <link>http://localhost:1313/posts/california-2025/</link>
+      <pubDate>Fri, 27 Jun 2025 17:56:16 -0400</pubDate>
+      <guid>http://localhost:1313/posts/california-2025/</guid>
+      <description>&lt;h1&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;trip-to-yosemite-national-park&#34;&gt;Trip to Yosemite National Park&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In June 2025, we had a fantastic opportunity to explore Yosemite National Park. It was a delightful two-day adventure, and we’re excited to share some notes about our journey and all the fun things we did.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Let&amp;rsquo;s begin with day one. On June 19th, Veena and I had the pleasure of visiting this lovely park together with Chandrasekar Vemula. We started our day early from his house and arrived at the park around 10:30 or 11:00 A.M., eager for a wonderful day ahead.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Simplified Stock Portfolio Tracker and Analyzer</title>
       <link>http://localhost:1313/posts/portfolio-analyzer/</link>
@@ -170,14 +200,14 @@ Controlling the Hisense freezer/refrigerator involves understanding the standby 
 &lt;h1 id=&#34;aws-saa-c02-study-guide&#34;&gt;AWS SAA-C02 Study Guide&lt;/h1&gt;
 &lt;p&gt;This study guide will help you pass the newer AWS Certified Solutions Architect - Associate exam. Ideally, you should reference this guide while working through the following material:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Stephane Maarek&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;Ultimate AWS Certified Solutions Architect Associate 2021 course&lt;!-- raw HTML omitted --&gt; (permanent discount available through this link) or A Cloud Guru&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect Associate SAA-C02 course&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Stephane Maarek&amp;rsquo;s &lt;a href=&#34;https://links.datacumulus.com/aws-certified-sa-associate-coupon&#34;&gt;Ultimate AWS Certified Solutions Architect Associate 2021 course&lt;/a&gt; (permanent discount available through this link) or A Cloud Guru&amp;rsquo;s &lt;a href=&#34;https://acloud.guru/learn/aws-certified-solutions-architect-associate&#34;&gt;AWS Certified Solutions Architect Associate SAA-C02 course&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;The FAQs for the most critical services, included in the recommended reading list below&lt;/li&gt;
-&lt;li&gt;Tutorials Dojo&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect Associate Practice Exams &lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;Andrew Brown&amp;rsquo;s &lt;!-- raw HTML omitted --&gt;AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course
-&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Tutorials Dojo&amp;rsquo;s &lt;a href=&#34;https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/&#34;&gt;AWS Certified Solutions Architect Associate Practice Exams &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Andrew Brown&amp;rsquo;s &lt;a href=&#34;https://www.youtube.com/watch?v=Ia-UEYYR44s&#34;&gt;AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course
+&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;Notes&lt;/em&gt;:
-If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in &lt;!-- raw HTML omitted --&gt;r/AWSCertifications&lt;!-- raw HTML omitted --&gt; as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it&amp;rsquo;s very important to be sure that you know what is &lt;!-- raw HTML omitted --&gt;free&lt;!-- raw HTML omitted --&gt; and what isn&amp;rsquo;t. Relevant Free Tier FAQs can be found &lt;!-- raw HTML omitted --&gt;here&lt;!-- raw HTML omitted --&gt;. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek&amp;rsquo;s course depending on how urgently you need the content.&lt;/p&gt;</description>
+If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in &lt;a href=&#34;https://reddit.com/r/AWSCertifications/&#34;&gt;r/AWSCertifications&lt;/a&gt; as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it&amp;rsquo;s very important to be sure that you know what is &lt;a href=&#34;https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&#34;&gt;free&lt;/a&gt; and what isn&amp;rsquo;t. Relevant Free Tier FAQs can be found &lt;a href=&#34;https://aws.amazon.com/free/free-tier-faqs/&#34;&gt;here&lt;/a&gt;. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek&amp;rsquo;s course depending on how urgently you need the content.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Add New Blog</title>

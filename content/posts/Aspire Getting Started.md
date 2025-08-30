@@ -1,10 +1,11 @@
-+++ 
-date = '2025-08-28T16:53:30-04:00' 
-draft = false
-title = 'Aspire Getting Started' 
-
-tags = ['Aspire' 'dotNet']
 +++
+date = '2025-08-30T17:31:31-04:00'
+draft = false
+title = 'Aspire Getting Started'
+tags = ['Programming']
+categories = ['Aspire', 'Blazor']
++++
+
 
 Microsoft has [excellent documentation](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/build-your-first-aspire-app?tabs=windows&pivots=visual-studio) for getting started with Aspire, but I am preparing this document for my personal reference and easy access.
 
