@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Hugo Site with Docker
         run: |
-          docker run --rm -v ${{ github.workspace }}:/src razonyang/hugo:0.149.0
+          docker run --rm -v ${{ github.workspace }}:/src hugomods/hugo:0.149.0
 
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
